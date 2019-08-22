@@ -37,9 +37,11 @@ def register():
             module.register()
     
     # declare some variables for the tool
-    bpy.types.Object.dynaremesh_res = bpy.props.IntProperty(name="Resolution", default=8, min=1, max=10)
-    bpy.types.Object.dynaremesh_smooth = bpy.props.BoolProperty(name="Smooth", default=False)
-    bpy.types.Object.dynaremesh_decimate = bpy.props.BoolProperty(name="Decimate", default=False)
+    bpy.types.Scene.dynaremesh_res = bpy.props.IntProperty(name="Resolution", default=8, min=1, max=10)
+    bpy.types.Scene.dynaremesh_smooth = bpy.props.BoolProperty(name="Smooth", default=False)
+    bpy.types.Scene.dynaremesh_decimate = bpy.props.BoolProperty(name="Decimate", default=True)
+    bpy.types.Scene.dynaremesh_decimate_ratio = bpy.props.FloatProperty(name="Ratio", default=0.1, min=0.0, max=1.0)
+
 
 def unregister():
     for cls in reversed(ordered_classes):
